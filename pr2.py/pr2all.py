@@ -46,4 +46,34 @@ else:
     c = a
 print(c)
 
+# перші числа ряду Фібоначчі
+a, b = 0, 1
+while b < 100: 
+    print(b, end=' ')
+    a, b = b, a + b
+print()
 
+# від 5-го до 20-го
+fib_sequence = []
+a, b = 0, 1
+count = 0
+
+while count < 20:
+    fib_sequence.append(b)
+    a, b = b, a + b
+    count += 1
+
+# Виведення
+for number in fib_sequence[4:20]:
+    print(number, end=" ")
+print()
+
+# Виведення парних чисел від 0 до 20
+for i in range(0, 21, 2):
+    print(i, end=" ")
+print()
+
+# кожного третього числа від -1 до -21
+for i in range(-1, -22, -3):
+    print(i, end=" ")
+print()
