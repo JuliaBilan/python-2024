@@ -1,28 +1,41 @@
-def handler_2_4():
-    return "2/4: Проста дводольна метрика"
+class TimeSignature:
+    def __init__(self, description):
+        self.description = description
+    
+    def get_description(self):
+        return self.description
 
-def handler_4_8():
-    return "4/8: Дводольна метрика з восьмими нотами"
+class SimpleDupleMetric(TimeSignature):
+    def __init__(self):
+        super().__init__("2/4: Проста дводольна метрика")
 
-def handler_3_8():
-    return "3/8: Тридольна метрика з восьмими нотами"
+class CompoundDupleMetric(TimeSignature):
+    def __init__(self):
+        super().__init__("4/8: Дводольна метрика з восьмими нотами")
 
-def handler_4_4():
-    return "4/4: Чотири четверті"
+class TripleMetric(TimeSignature):
+    def __init__(self):
+        super().__init__("3/8: Тридольна метрика з восьмими нотами")
 
-def handler_3_4():
-    return "3/4: Тридольна метрика, часто використовується в вальсах"
+class CommonTime(TimeSignature):
+    def __init__(self):
+        super().__init__("4/4: Чотири четверті")
 
-def handler_6_8():
-    return "6/8: Складна дводольна метрика"
+class Waltz(TimeSignature):
+    def __init__(self):
+        super().__init__("3/4: Тридольна метрика, часто використовується в вальсах")
 
-sonata_time_signatures = [handler_3_8, handler_4_4]
-polka_time_signatures = [handler_2_4, handler_4_8]
+class ComplexDupleMetric(TimeSignature):
+    def __init__(self):
+        super().__init__("6/8: Складна дводольна метрика")
+
+sonata_time_signatures = [TripleMetric(), CommonTime()]
+polka_time_signatures = [SimpleDupleMetric(), CompoundDupleMetric()]
 
 print("Соната (Sonata) музичні розміри:")
-for handler in sonata_time_signatures:
-    print(handler())
+for signature in sonata_time_signatures:
+    print(signature.get_description())
 
-print("Полька (Polka) музичні розміри:")
-for handler in polka_time_signatures:
-    print(handler())
+print("\nПолька (Polka) музичні розміри:")
+for signature in polka_time_signatures:
+    print(signature.get_description())
